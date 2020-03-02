@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'booking',
+    'rest_framework',
+    'rest_framework_swagger',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -118,3 +122,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        "api_key": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        },
+    },
+    "LOGIN_URL": "/admin/login",
+    "LOGOUT_URL": "/admin/logout"
+}
